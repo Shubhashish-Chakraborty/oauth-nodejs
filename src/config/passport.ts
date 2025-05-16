@@ -3,6 +3,8 @@ import { Strategy as GoogleStrategy, Profile as GoogleProfile } from "passport-g
 import { Strategy as GitHubStrategy, Profile as GitHubProfile } from "passport-github2";
 import { VerifyCallback } from "passport-oauth2";
 
+const BASE_URL = process.env.BASE_URL || "http://localhost:3001"; // fallback for local testing
+
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID!;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET!;
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID!;
@@ -23,7 +25,7 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback",
+      callbackURL: `${BASE_URL}/auth/google/callback`, // Updated and corrected!!!!!!
     },
     (
       _accessToken: string,
