@@ -44,7 +44,7 @@ passport.use(
     {
       clientID: GITHUB_CLIENT_ID,
       clientSecret: GITHUB_CLIENT_SECRET,
-      callbackURL: "/auth/github/callback",
+      callbackURL: `${BASE_URL}/auth/github/callback`,
     },
     (
       _accessToken: string,
